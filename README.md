@@ -28,3 +28,14 @@ Leveraged Trading - Open long/short positions with 1-25x leverage
 Market & Limit Orders - Full order type support
 Position Management - View positions, P&L, liquidation prices
 Risk Controls - Default 1x leverage, double confirmation for >5
+
+## Architecture
+
+    Runtime: Bun 1.2.21
+    Frontend: React 18 + TypeScript + Vite
+    Backend: Custom ElizaOS Server build (based on @elizaos/server)
+    Build System: Turbo
+    Styling: Tailwind CSS 4.x
+    UI Components: Radix UI
+    State Management: Zustand, React Query
+    WebSocket: Socket.IO Client
