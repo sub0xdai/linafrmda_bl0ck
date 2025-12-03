@@ -26,6 +26,24 @@
   - Agent-managed Solana wallet with encrypted seed storage
   - Unified dashboard across chains
 
+  ## x402 Micropayments
+
+  Lina can pay for premium APIs automatically using the [x402 protocol](https://x402.org).
+
+  **How it works:**
+  1. Agent calls a paid API endpoint
+  2. API returns `402 Payment Required` with price
+  3. Agent signs USDC payment on Base
+  4. Retries request with payment proof
+  5. Returns response + transaction receipt
+
+  **Action:** `FETCH_WITH_PAYMENT`
+  fetch https://api.example.com/premium-data with payment
+
+  **Config:** Set `maxPayment` limit (default 1 USDC). Requires CDP wallet with USDC on Base.
+
+  **Use case:** Access paid research APIs like [otaku.so](https://otaku.so) ($0.015/request) for deep research tasks the agent can't do with free tools.
+
   ## Tech Stack
 
   | Layer | Stack |
