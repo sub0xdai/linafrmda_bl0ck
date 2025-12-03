@@ -31,18 +31,18 @@
   Lina can pay for premium APIs automatically using the [x402 protocol](https://x402.org).
 
   **How it works:**
-  1. Agent calls a paid API endpoint
-  2. API returns `402 Payment Required` with price
-  3. Agent signs USDC payment on Base
-  4. Retries request with payment proof
-  5. Returns response + transaction receipt
+  1. You ask Lina to fetch from a paid API
+  2. If the API returns `402 Payment Required`, Lina reads the price
+  3. Signs a USDC payment on Base from your CDP wallet
+  4. Retries the request with proof of payment
+  5. Returns the data + transaction hash
 
-  **Action:** `FETCH_WITH_PAYMENT`
-  fetch https://api.example.com/premium-data with payment
+  **Example:**
+  fetch https://premium-api.com/data with payment
 
-  **Config:** Set `maxPayment` limit (default 1 USDC). Requires CDP wallet with USDC on Base.
+  **Limits:** Default max 1 USDC per request. Configurable via `maxPayment` parameter.
 
-  **Use case:** Access paid research APIs like [otaku.so](https://otaku.so) ($0.015/request) for deep research tasks the agent can't do with free tools.
+  **Requires:** CDP wallet with USDC balance on Base
 
   ## Tech Stack
 
