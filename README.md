@@ -1,41 +1,56 @@
-# linafrmda_bl0ck
+ # Lina
+_This is still in beta_
+  Multi-chain AI trading agent built on ElizaOS. Trade across EVM + Solana from a single chat interface.
 
-## Lina AI Agent
+  ## What It Does
 
-_A multi-chain DeFi AI agent built on ElizaOS, featuring a modern React frontend, Coinbase Developer Platform (CDP) wallet integration for EVM chains, and comprehensive DeFi capabilities including swaps, bridging, analytics, and market data. 
-Now expanding to support Solana with Jupiter DEX integration, SPL token management, and perp trading capabilities.
-Features
-**Current Features:**
+  **Spot Trading**
+  - EVM swaps via Uniswap (Base, Ethereum, Polygon, Arbitrum, Optimism)
+  - Solana swaps via Jupiter aggregator
+  - Cross-chain bridging via Relay Protocol
 
-    AI Agent Interface - Real-time chat with Lina, a multi-chain DeFi analyst agent
-    CDP Wallet Integration - Secure authentication and wallet management via Coinbase Developer Platform
-    Multi-Chain EVM Support - Interact with Ethereum, Base, Polygon, Arbitrum, Optimism, and more
-    DeFi Actions - Token swaps, transfers, bridging, and NFT operations
-    Market Data - Real-time token prices, trending tokens/collections, and DeFi protocol analytics
-    Web Search - Web search and crypto news integration
-    Modern UI - Responsive design with Tailwind CSS, Radix UI components, and smooth animations
-    Real-time Communication - WebSocket-powered instant messaging via Socket.IO
+  **Perpetuals**
+  - Hyperliquid (EVM) - up to 25x leverage
+  - Drift Protocol (Solana) - up to 20x leverage
+  - Position management, P&L tracking, liquidation alerts
 
-🚀 **Solana Integration**
+  **Analytics**
+  - Token prices (CoinGecko)
+  - Protocol TVL (DeFiLlama)
+  - On-chain flows (Nansen MCP)
+  - Crypto news (CoinDesk)
 
-    Solana Wallet Management - Agent-managed Solana wallets with encrypted seed phrase storage
-    Jupiter DEX - Token swaps on Solana via Jupiter aggregator
-    SPL Token Support - SOL and SPL token transfers with automatic ATA creation
-    Multi-Chain UI - Unified dashboard for EVM and Solana chains
+  **Wallets**
+  - CDP wallet for all EVM chains
+  - Agent-managed Solana wallet with encrypted seed storage
+  - Unified dashboard across chains
 
-🔥 **Hyperliquid/Drift Perpetuals (EVM, Solana)**
-Leveraged Trading - Open long/short positions with 1-25x leverage
-Market & Limit Orders - Full order type support
-Position Management - View positions, P&L, liquidation prices
-Risk Controls - Default 1x leverage, double confirmation for >5
+  ## Tech Stack
 
-## Architecture
+  | Layer | Stack |
+  |-------|-------|
+  | Runtime | Bun 1.2.21 |
+  | Frontend | React 18, Vite, Tailwind 4, Radix UI |
+  | Backend | ElizaOS server, Socket.IO |
+  | Build | Turbo (monorepo) |
+  | State | Zustand, React Query |
 
-    Runtime: Bun 1.2.21
-    Frontend: React 18 + TypeScript + Vite
-    Backend: Custom ElizaOS Server build (based on @elizaos/server)
-    Build System: Turbo
-    Styling: Tailwind CSS 4.x
-    UI Components: Radix UI
-    State Management: Zustand, React Query
-    WebSocket: Socket.IO Client
+  ## Roadmap
+
+  ### Now
+  - Drift Protocol integration (Solana perps)
+  - Solana → EVM bridge
+
+  ### Next
+  - Jupiter Perps as Drift alternative
+  - Unified position view across chains
+  - Auto-margin bridging (USDC)
+
+  ### Future: bl0ck Integration
+  Lina will integrate bl0ck's privacy features via WASM:
+
+  - **Shadow Pass** - Prove wallet wealth without revealing addresses. Users can verify tier status (Ghost/Leviathan/Apex) for gated features without doxxing holdings.
+  - **Phantom Wrapper** - Anonymous token wrapping. Wrap SOL/SPL into private commitments, unwrap to any address without linkability.
+  - **Nullifier System** - Anti-replay protection for trades using zero-knowledge proofs.
+
+  Privacy layer ships after bl0ck circuit (monerochan-rs zkVM) hits mainnet.
